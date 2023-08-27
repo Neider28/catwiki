@@ -1,0 +1,67 @@
+<section class="dashboard-container">
+  <div class="search-container">
+    <img src="../../../assets/svg/CatwikiLogoWhite.svg" alt="Catwiki" class="catwiki-icon">
+    <p>Get to know more about your cat breed</p>
+    <button type="button" (click)="handleModalSearch()">
+      Search
+      <img src="../../../assets/svg/search.svg" alt="Search" class="search-icon">
+    </button>
+    <div class="input-search-container">
+      <app-search-breed></app-search-breed>
+    </div>
+  </div>
+  <div class="most-searched-container">
+    <h3>Most Searched Breeds</h3>
+    <div class="divider"></div>
+    <h1>66+ Breeds For you to discover</h1>
+    <div class="loading-container" *ngIf="isLoading">
+      <ngx-skeleton-loader
+        count="1"
+        appearance="line"
+        [theme]="{
+          width: '100%',
+          height: '100%',
+          borderRadius: '2.4rem',
+          background: 'rgba(41, 21, 7, 0.15)',
+          marginBottom: '0px'
+        }"
+      ></ngx-skeleton-loader>
+    </div>
+    <div class="cats-container" *ngIf="!isLoading">
+      <article class="cat-item cat-1" [routerLink]="links[0]">
+        <img [src]="mainBreeds[0].image.url" [alt]="mainBreeds[0].name">
+      </article>
+      <article class="cat-item cat-2" [routerLink]="links[1]">
+        <img [src]="mainBreeds[1].image.url" [alt]="mainBreeds[1].name">
+      </article>
+      <article class="cat-item cat-3" [routerLink]="links[2]">
+        <img [src]="mainBreeds[2].image.url" [alt]="mainBreeds[2].name">
+      </article>
+      <article class="cat-item cat-4" [routerLink]="links[3]">
+        <img [src]="mainBreeds[3].image.url" [alt]="mainBreeds[3].name">
+      </article>
+    </div>
+  </div>
+</section>
+<section class="information-container">
+  <div class="information-content">
+    <div class="divider"></div>
+    <h1>Why should you have a cat?</h1>
+    <p>Having a cat around you can actually trigger the release of calming chemicals in your body which lower your stress and anxiety leves.</p>
+    <a href="https://cvillecatcare.com/veterinary-topics/101-amazing-cat-facts-fun-trivia-about-your-feline-friend/"
+      target="_blank" class="link-more"
+    >READ MORE</a>
+  </div>
+  <div class="grid-container">
+    <div class="grid-item grid-1">
+      <img src="../../../assets/img/image 2.png" alt="Cat 2">
+    </div>
+    <div class="grid-item grid-2">
+      <img src="../../../assets/img/image 3.png" alt="Cat 3">
+    </div>
+    <div class="grid-item grid-3">
+      <img src="../../../assets/img/image 1.png" alt="Cat 1">
+    </div>
+  </div>
+</section>
+<app-modal-search *ngIf="handleModal" (closeModal)="closeModalEmitter($event)"></app-modal-search>

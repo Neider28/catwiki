@@ -1,0 +1,18 @@
+.error-container {
+  width: 100%;
+  height: auto;
+  padding: 100px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-container img {
+  width: 85%;
+}
+
+@media (min-width: 700px) {
+  .error-container img {
+    width: 500px;
+  }
+}

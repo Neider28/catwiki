@@ -1,0 +1,174 @@
+<app-error *ngIf="isError"></app-error>
+<section class="detail-container" *ngIf="!isError">
+  <div class="detail-main-container">
+    <div class="detail-main-image">
+      <ngx-skeleton-loader
+        count="1"
+        appearance="line"
+        [theme]="{
+          width: '100%',
+          height: '200px',
+          borderRadius: '2.4rem',
+          background: 'rgba(41, 21, 7, 0.15)',
+          marginBottom: '0px'
+        }"
+        *ngIf="isLoading"
+      ></ngx-skeleton-loader>
+      <img [src]="image" [alt]="breed.name" width="100%" *ngIf="!isLoading">
+    </div>
+    <div class="detail-main-description">
+      <ngx-skeleton-loader
+        count="1"
+        appearance="line"
+        [theme]="{
+          width: '100%',
+          height: '50px',
+          borderRadius: '1rem',
+          background: 'rgba(41, 21, 7, 0.15)',
+          marginBottom: '20px'
+        }"
+        *ngIf="isLoading"
+      ></ngx-skeleton-loader>
+      <h2 *ngIf="!isLoading">{{ breed.name }}</h2>
+      <ngx-skeleton-loader
+        count="1"
+        appearance="line"
+        [theme]="{
+          width: '100%',
+          height: '100px',
+          borderRadius: '1rem',
+          background: 'rgba(41, 21, 7, 0.15)',
+          marginBottom: '0px'
+        }"
+        *ngIf="isLoading"
+      ></ngx-skeleton-loader>
+      <p *ngIf="!isLoading">{{ breed.description }}</p>
+      <ngx-skeleton-loader
+        count="1"
+        appearance="line"
+        [theme]="{
+          width: '100%',
+          height: '400px',
+          borderRadius: '1rem',
+          background: 'rgba(41, 21, 7, 0.15)',
+          marginBottom: '0px',
+          marginTop: '50px'
+        }"
+        *ngIf="isLoading"
+      ></ngx-skeleton-loader>
+      <div class="detail-attributes" *ngIf="!isLoading">
+        <div class="attribute-item">
+          <h3>Temperament:</h3>
+          <p>{{ breed.temperament }}</p>
+        </div>
+        <div class="attribute-item">
+          <h3>Origin:</h3>
+          <p>{{ breed.origin }}</p>
+        </div>
+        <div class="attribute-item">
+          <h3>Life Span:</h3>
+          <p>{{ breed.life_span }} years</p>
+        </div>
+        <div class="attribute-item stat-item">
+          <h3>Adaptability:</h3>
+          <div class="level-container">
+            <span [ngClass]="{'active': breed.adaptability >= 1}"></span>
+            <span [ngClass]="{'active': breed.adaptability >= 2}"></span>
+            <span [ngClass]="{'active': breed.adaptability >= 3}"></span>
+            <span [ngClass]="{'active': breed.adaptability >= 4}"></span>
+            <span [ngClass]="{'active': breed.adaptability >= 5}"></span>
+          </div>
+        </div>
+        <div class="attribute-item stat-item">
+          <h3>Affection level:</h3>
+          <div class="level-container">
+            <span [ngClass]="{'active': breed.affection_level >= 1}"></span>
+            <span [ngClass]="{'active': breed.affection_level >= 2}"></span>
+            <span [ngClass]="{'active': breed.affection_level >= 3}"></span>
+            <span [ngClass]="{'active': breed.affection_level >= 4}"></span>
+            <span [ngClass]="{'active': breed.affection_level >= 5}"></span>
+          </div>
+        </div>
+        <div class="attribute-item stat-item">
+          <h3>Child Friendly:</h3>
+          <div class="level-container">
+            <span [ngClass]="{'active': breed.child_friendly >= 1}"></span>
+            <span [ngClass]="{'active': breed.child_friendly >= 2}"></span>
+            <span [ngClass]="{'active': breed.child_friendly >= 3}"></span>
+            <span [ngClass]="{'active': breed.child_friendly >= 4}"></span>
+            <span [ngClass]="{'active': breed.child_friendly >= 5}"></span>
+          </div>
+        </div>
+        <div class="attribute-item stat-item">
+          <h3>Grooming:</h3>
+          <div class="level-container">
+            <span [ngClass]="{'active': breed.grooming >= 1}"></span>
+            <span [ngClass]="{'active': breed.grooming >= 2}"></span>
+            <span [ngClass]="{'active': breed.grooming >= 3}"></span>
+            <span [ngClass]="{'active': breed.grooming >= 4}"></span>
+            <span [ngClass]="{'active': breed.grooming >= 5}"></span>
+          </div>
+        </div>
+        <div class="attribute-item stat-item">
+          <h3>Intelligence:</h3>
+          <div class="level-container">
+            <span [ngClass]="{'active': breed.intelligence >= 1}"></span>
+            <span [ngClass]="{'active': breed.intelligence >= 2}"></span>
+            <span [ngClass]="{'active': breed.intelligence >= 3}"></span>
+            <span [ngClass]="{'active': breed.intelligence >= 4}"></span>
+            <span [ngClass]="{'active': breed.intelligence >= 5}"></span>
+          </div>
+        </div>
+        <div class="attribute-item stat-item">
+          <h3>Health issues:</h3>
+          <div class="level-container">
+            <span [ngClass]="{'active': breed.health_issues >= 1}"></span>
+            <span [ngClass]="{'active': breed.health_issues >= 2}"></span>
+            <span [ngClass]="{'active': breed.health_issues >= 3}"></span>
+            <span [ngClass]="{'active': breed.health_issues >= 4}"></span>
+            <span [ngClass]="{'active': breed.health_issues >= 5}"></span>
+          </div>
+        </div>
+        <div class="attribute-item stat-item">
+          <h3>Social needs:</h3>
+          <div class="level-container">
+            <span [ngClass]="{'active': breed.social_needs >= 1}"></span>
+            <span [ngClass]="{'active': breed.social_needs >= 2}"></span>
+            <span [ngClass]="{'active': breed.social_needs >= 3}"></span>
+            <span [ngClass]="{'active': breed.social_needs >= 4}"></span>
+            <span [ngClass]="{'active': breed.social_needs >= 5}"></span>
+          </div>
+        </div>
+        <div class="attribute-item stat-item">
+          <h3>Stranger friendly:</h3>
+          <div class="level-container">
+            <span [ngClass]="{'active': breed.stranger_friendly >= 1}"></span>
+            <span [ngClass]="{'active': breed.stranger_friendly >= 2}"></span>
+            <span [ngClass]="{'active': breed.stranger_friendly >= 3}"></span>
+            <span [ngClass]="{'active': breed.stranger_friendly >= 4}"></span>
+            <span [ngClass]="{'active': breed.stranger_friendly >= 5}"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="other-photos-container">
+    <h2>Other photos</h2>
+    <ngx-skeleton-loader
+        count="1"
+        appearance="line"
+        [theme]="{
+          width: '100%',
+          height: '400px',
+          borderRadius: '1rem',
+          background: 'rgba(41, 21, 7, 0.15)',
+          marginBottom: '0px',
+          marginTop: '40px'
+        }"
+        *ngIf="isLoading"
+      ></ngx-skeleton-loader>
+    <div class="photos-container" *ngIf="!isLoading">
+      <app-photo *ngFor="let image of images" [image]="image"></app-photo>
+    </div>
+  </div>
+</section>

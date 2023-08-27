@@ -1,0 +1,12 @@
+.photo-container {
+  width: 100%;
+}
+
+.photo-container img {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  object-fit: cover;
+  border-radius: 2.4rem;
+}
